@@ -22,12 +22,23 @@
           ></textarea>
         </div>
         <div class="flex flex-col p-3 flex-grow">
-          <h2 class="text-3xl">Al Bhed</h2>
+          <div class="flex items-center">
+            <h2 class="text-3xl">Al Bhed</h2>
+            <div class="ml-3">
+              <input type="checkbox" id="pronunciationToggle" />
+              <label for="pronunciationToggle">Show pronunciation</label>
+            </div>
+          </div>
           <textarea
             id="albhed"
             class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
           ></textarea>
-          <div>(pronounced <em id="pronunciation"></em>)</div>
+          <textarea
+            id="pronunciation"
+            class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
+            style="display: none"
+            readonly
+          ></textarea>
         </div>
       </div>
       <div class="p-3">
