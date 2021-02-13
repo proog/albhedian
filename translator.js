@@ -29,12 +29,56 @@ const englishToAlBhedMap = new Map([
 const alBhedToEnglishMap = new Map(
   Array.from(englishToAlBhedMap).map(([k, v]) => [v, k])
 );
+const pronunciationMap = new Map([
+  ["A", "AH"],
+  ["B", "BAE"],
+  ["C", "KU"],
+  ["D", "DE"],
+  ["E", "EAY"],
+  ["F", "FE"],
+  ["G", "GE"],
+  ["H", "HA"],
+  ["I", "EE"],
+  ["J", "JAE"],
+  ["K", "KUK"],
+  ["L", "LU"],
+  ["M", "M"],
+  ["N", "N"],
+  ["O", "OH"],
+  ["P", "PE"],
+  ["Q", "Q"],
+  ["R", "RA"],
+  ["S", "SEE"],
+  ["T", "TE"],
+  ["U", "OO"],
+  ["V", "FU"],
+  ["W", "W"],
+  ["X", "X"],
+  ["Y", "AE"],
+  ["Z", "Z"],
+]);
 
 function translate(value, translationMap) {
   let translatedValue = "";
+  let literalEscape = false;
+
   for (const char of value) {
-    translatedValue += translateChar(char, translationMap);
+    if (!literalEscape && char === "[") {
+      literalEscape = true;
+      translatedValue += char;
+      continue;
+    }
+    if (literalEscape && char === "]") {
+      literalEscape = false;
+      translatedValue += char;
+      continue;
+    }
+
+    translatedValue += literalEscape
+      ? char
+      : translateChar(char, translationMap);
   }
+
   return translatedValue;
 }
 
@@ -52,16 +96,14 @@ function translateChar(char, translationMap) {
     : translatedChar.toLowerCase();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const englishInput = document.querySelector("#english");
-  const albhedInput = document.querySelector("#albhed");
+export function pronounce(value) {
+  return translate(value, pronunciationMap).toLowerCase();
+}
 
-  englishInput.addEventListener("input", (event) => {
-    const translated = translate(event.target.value, englishToAlBhedMap);
-    albhedInput.value = translated;
-  });
-  albhedInput.addEventListener("input", (event) => {
-    const translated = translate(event.target.value, alBhedToEnglishMap);
-    englishInput.value = translated;
-  });
-});
+export function toAlBhed(value) {
+  return translate(value, englishToAlBhedMap);
+}
+
+export function fromAlBhed(value) {
+  return translate(value, alBhedToEnglishMap);
+}

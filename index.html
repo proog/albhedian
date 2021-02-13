@@ -8,7 +8,7 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <script src="translator.js"></script>
+    <script src="app.js" type="module"></script>
     <title>AlBhedian</title>
   </head>
   <body class="font-sans font-light bg-yellow-100">
@@ -21,7 +21,7 @@
           <h2 class="text-3xl">Spiran (English)</h2>
           <textarea
             id="english"
-            class="flex-grow bg-transparent resize-none outline-none border border-blue-300 focus:border-blue-500"
+            class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
             autofocus
           ></textarea>
         </div>
@@ -29,8 +29,9 @@
           <h2 class="text-3xl">Al Bhed</h2>
           <textarea
             id="albhed"
-            class="flex-grow bg-transparent resize-none outline-none border border-blue-300 focus:border-blue-500"
+            class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
           ></textarea>
+          <div>(pronounced <em id="pronunciation"></em>)</div>
         </div>
       </div>
       <div class="p-3">
