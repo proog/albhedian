@@ -1,4 +1,5 @@
-import { fromAlBhed, pronounce, toAlBhed } from "./translator.js";
+import "./app.css";
+import { fromAlBhed, pronounce, toAlBhed } from "./translator";
 
 document.addEventListener("DOMContentLoaded", () => {
   const englishInput = document.querySelector("#english");
