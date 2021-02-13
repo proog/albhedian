@@ -7,29 +7,37 @@
     <script src="./app.js"></script>
     <title>AlBhedian</title>
   </head>
-  <body class="font-sans font-light bg-yellow-100">
-    <div class="h-screen w-screen flex flex-col">
-      <div class="p-3">
-        <h2 class="text-4xl border-b border-blue-300">AlBhedian</h2>
-      </div>
-      <div class="flex-grow flex flex-col xl:flex-row">
+  <body
+    class="font-sans font-light bg-center bg-cover text-black dark:text-white"
+  >
+    <div
+      class="h-screen w-screen flex flex-col bg-white bg-opacity-30 dark:bg-black dark:bg-opacity-30"
+    >
+      <header class="p-3">
+        <h2 class="text-4xl border-b border-blue-500 dark:border-yellow-100">
+          AlBhedian
+        </h2>
+      </header>
+      <main class="flex-grow flex flex-col xl:flex-row">
         <div class="flex flex-col p-3 flex-grow">
-          <h2 class="text-3xl">Spiran (English)</h2>
+          <h2 class="text-2xl">Spiran (English)</h2>
           <textarea
             id="english"
-            class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
+            class="flex-grow bg-transparent resize-none outline-none p-3 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 rounded"
+            placeholder="Enter something..."
             autofocus
           ></textarea>
         </div>
         <div class="flex flex-col p-3 flex-grow">
-          <h2 class="text-3xl">Al Bhed</h2>
+          <h2 class="text-2xl">Al Bhed</h2>
           <textarea
             id="albhed"
-            class="flex-grow bg-transparent resize-none outline-none p-1 border border-blue-300 focus:border-blue-500"
+            class="flex-grow bg-transparent resize-none outline-none p-3 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 rounded"
+            placeholder="Ahdan cusadrehk..."
           ></textarea>
         </div>
-      </div>
-      <div class="p-3">
+      </main>
+      <footer class="p-3 text-right">
         Based on work by
         <a
           href="http://stefangagne.com/albhed.html"
@@ -44,7 +52,7 @@
           class="underline"
           >Lynn Brown</a
         >
-      </div>
+      </footer>
     </div>
   </body>
 </html>
