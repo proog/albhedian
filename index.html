@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="translator.js"></script>
+    <title>AlBhedian</title>
+  </head>
+  <body class="font-sans font-light bg-yellow-100">
+    <div class="h-screen w-screen flex flex-col">
+      <div class="p-3">
+        <h2 class="text-4xl border-b border-blue-300">AlBhedian</h2>
+      </div>
+      <div class="flex-grow flex flex-col xl:flex-row">
+        <div class="flex flex-col p-3 flex-grow">
+          <h2 class="text-3xl">Spiran (English)</h2>
+          <textarea
+            id="english"
+            class="flex-grow bg-transparent resize-none outline-none border border-blue-300 focus:border-blue-500"
+            autofocus
+          ></textarea>
+        </div>
+        <div class="flex flex-col p-3 flex-grow">
+          <h2 class="text-3xl">Al Bhed</h2>
+          <textarea
+            id="albhed"
+            class="flex-grow bg-transparent resize-none outline-none border border-blue-300 focus:border-blue-500"
+          ></textarea>
+        </div>
+      </div>
+      <div class="p-3">
+        Based on work by
+        <a
+          href="http://stefangagne.com/albhed.html"
+          target="_blank"
+          class="underline"
+          >Stefan Gagne</a
+        >
+        and
+        <a
+          href="https://gamefaqs.gamespot.com/ps2/197344-final-fantasy-x/faqs/14645"
+          target="_blank"
+          class="underline"
+          >Lynn Brown</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
