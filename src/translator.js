@@ -70,37 +70,35 @@ const pronunciationMap = new Map([
   ["Z", "Z"],
 ]);
 
-function translate(value, translationMap) {
-  let translatedValue = "";
-  let literalEscape = false;
+function translate(original, translationMap) {
+  let translated = "";
+  let escape = false;
 
-  for (const char of value) {
-    if (!literalEscape && char === "[") {
-      literalEscape = true;
-      translatedValue += char;
-      continue;
-    }
-    if (literalEscape && char === "]") {
-      literalEscape = false;
-      translatedValue += char;
+  for (const char of original) {
+    if (escape || char === "[") {
+      translated += char;
+      escape = char !== "]";
       continue;
     }
 
-    translatedValue += literalEscape
-      ? char
-      : translateChar(char, translationMap);
+    if (!validateChar(char, translationMap)) {
+      translated += char;
+      continue;
+    }
+
+    translated += translateChar(char, translationMap);
   }
 
-  return translatedValue;
+  return translated;
+}
+
+function validateChar(char, translationMap) {
+  const upperCaseChar = char.toUpperCase();
+  return translationMap.has(upperCaseChar);
 }
 
 function translateChar(char, translationMap) {
   const upperCaseChar = char.toUpperCase();
-
-  if (!translationMap.has(upperCaseChar)) {
-    return char;
-  }
-
   const translatedChar = translationMap.get(upperCaseChar);
 
   return char === upperCaseChar
