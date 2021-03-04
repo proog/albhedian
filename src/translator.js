@@ -1,3 +1,4 @@
+const vowels = ["A", "E", "I", "O", "U", "Y"];
 const englishToAlBhedMap = new Map([
   ["A", "Y"],
   ["Á", "Ý"],
@@ -70,23 +71,36 @@ const pronunciationMap = new Map([
   ["Z", "Z"],
 ]);
 
-function translate(original, translationMap) {
+function translate(original, translationMap, pronunciationMode = false) {
   let translated = "";
   let escape = false;
+  let previousCharWasTranslated = false;
 
   for (const char of original) {
     if (escape || char === "[") {
       translated += char;
       escape = char !== "]";
+      previousCharWasTranslated = false;
       continue;
     }
 
     if (!validateChar(char, translationMap)) {
       translated += char;
+      previousCharWasTranslated = false;
       continue;
     }
 
-    translated += translateChar(char, translationMap);
+    const translatedChar = translateChar(char, translationMap);
+
+    if (
+      pronunciationMode &&
+      shouldAddHyphen(previousCharWasTranslated, translatedChar)
+    ) {
+      translated += "-";
+    }
+
+    translated += translatedChar;
+    previousCharWasTranslated = true;
   }
 
   return translated;
@@ -106,8 +120,21 @@ function translateChar(char, translationMap) {
     : translatedChar.toLowerCase();
 }
 
+function shouldAddHyphen(previousCharWasTranslated, translatedChar) {
+  if (!previousCharWasTranslated) {
+    return false;
+  }
+
+  const startsWithConsonant = !isVowel(translatedChar.charAt(0));
+  return startsWithConsonant && translatedChar.length > 1;
+}
+
+function isVowel(char) {
+  return vowels.includes(char.toUpperCase());
+}
+
 export function pronounce(value) {
-  return translate(value, pronunciationMap).toLowerCase();
+  return translate(value, pronunciationMap, true);
 }
 
 export function toAlBhed(value) {
