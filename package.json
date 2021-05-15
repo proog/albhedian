@@ -8,7 +8,6 @@
     "build": "cross-env TAILWIND_ENABLE_PURGE=true parcel build --no-cache ./src/index.html",
     "prebuild": "rimraf ./dist"
   },
-  "dependencies": {},
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "autoprefixer": "^9",
