@@ -11,47 +11,92 @@
     class="font-sans font-light bg-center bg-cover text-black dark:text-white"
   >
     <div
-      class="h-screen w-screen flex flex-col bg-white bg-opacity-30 dark:bg-black dark:bg-opacity-30"
+      class="
+        min-h-screen
+        flex flex-col
+        bg-white bg-opacity-50
+        dark:bg-black dark:bg-opacity-50
+      "
     >
-      <header class="p-3">
-        <h2 class="text-4xl border-b border-blue-500 dark:border-yellow-100">
-          AlBhedian: Another Al Bhed translator
-        </h2>
+      <header class="m-3">
+        <h1 class="text-3xl border-b border-blue-500 dark:border-yellow-100">
+          AlBhedian
+        </h1>
+        <h2 class="text-xl">Another Al Bhed translator</h2>
       </header>
       <main class="flex-grow flex flex-col xl:flex-row">
-        <div class="flex flex-col p-3 flex-grow">
-          <h2 class="text-2xl">Spiran (English)</h2>
+        <div class="flex flex-col flex-grow xl:w-1/2 m-3">
+          <h3 class="text-2xl">Spiran (English)</h3>
           <textarea
             id="english"
-            class="flex-grow bg-transparent resize-none outline-none p-3 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 rounded"
+            class="
+              p-3
+              flex-grow
+              bg-transparent
+              resize-none
+              outline-none
+              bg-white bg-opacity-50
+              dark:bg-black dark:bg-opacity-50
+              rounded
+            "
             placeholder="Enter something..."
             autofocus
           ></textarea>
         </div>
-        <div class="flex flex-col p-3 flex-grow">
-          <h2 class="text-2xl">Al Bhed</h2>
-          <textarea
-            id="albhed"
-            class="flex-grow bg-transparent resize-none outline-none p-3 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 rounded"
-            placeholder="Ahdan cusadrehk..."
-          ></textarea>
+        <div class="flex flex-col flex-grow xl:w-1/2 m-3">
+          <h3 class="text-2xl">Al Bhed</h3>
+          <div class="flex flex-col flex-grow">
+            <textarea
+              id="albhed"
+              class="
+                p-3
+                flex-grow
+                bg-transparent
+                resize-none
+                outline-none
+                bg-white bg-opacity-50
+                dark:bg-black dark:bg-opacity-50
+                rounded
+              "
+              placeholder="Ahdan cusadrehk..."
+            ></textarea>
+            <textarea
+              id="pronunciation"
+              class="
+                mt-1
+                p-3
+                flex-grow
+                bg-transparent
+                resize-none
+                outline-none
+                bg-white bg-opacity-50
+                dark:bg-black dark:bg-opacity-50
+                rounded
+                italic
+              "
+              placeholder="Suggested pronunciation"
+              readonly
+            ></textarea>
+          </div>
         </div>
       </main>
-      <footer class="p-3 text-right">
+      <footer class="m-3 text-right">
         Based on work by
         <a
           href="http://stefangagne.com/albhed.html"
           target="_blank"
           class="underline"
-          >Stefan Gagne</a
         >
+          Stefan Gagne
+        </a>
         and
         <a
           href="https://gamefaqs.gamespot.com/ps2/197344-final-fantasy-x/faqs/14645"
           target="_blank"
           class="underline"
-          >Lynn Brown</a
         >
+          Lynn Brown
+        </a>
       </footer>
     </div>
   </body>
