@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const englishInput = document.querySelector("#english");
   const albhedInput = document.querySelector("#albhed");
   const pronunciation = document.querySelector("#pronunciation");
+  const fontCheckbox = document.querySelector("#albhed-font");
 
   englishInput.addEventListener("input", (event) => {
     const translated = toAlBhed(event.target.value);
@@ -21,4 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const pronounced = pronounce(event.target.value);
     pronunciation.value = pronounced;
   });
+
+  fontCheckbox.addEventListener("change", () => {
+    toggleAlBhedFont();
+  });
+
+  toggleAlBhedFont();
+
+  function toggleAlBhedFont() {
+    if (fontCheckbox.checked) {
+      albhedInput.classList.add("font-albhed");
+    } else {
+      albhedInput.classList.remove("font-albhed");
+    }
+  }
 });
