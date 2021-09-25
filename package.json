@@ -9,10 +9,11 @@
     "prebuild": "rimraf ./dist"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "parcel": "^2.0.0-beta.2",
-    "postcss": "^8.3.5",
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "autoprefixer": "^10.3.5",
+    "parcel": "^2.0.0-rc.0",
+    "postcss": "^8.3.8",
     "rimraf": "^3.0.2",
-    "tailwindcss": "^2.2.2"
+    "tailwindcss": "^2.2.15"
   }
 }
