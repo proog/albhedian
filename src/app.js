@@ -1,4 +1,3 @@
-import "./app.css";
 import { fromAlBhed, pronounce, toAlBhed } from "./translator";
 
 document.addEventListener("DOMContentLoaded", () => {
